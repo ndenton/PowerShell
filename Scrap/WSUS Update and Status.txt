@@ -1,0 +1,9 @@
+Start Sync (Get-WsusServer).GetSubscription().StartSynchronization()
+Check Sync (Get-WsusServer).GetSubscription().GetSynchronizationProgress()
+Check Run  (Get-WsusServer).GetSubscription().GetSynchronizationStatus()
+
+Get Unapproved Critical Updates 
+Get-WsusUpdate -Classification Critical -Approval Unapproved -Status Any
+
+Get Unapproved Security Updates
+Get-WsusUpdate -Classification Security -Approval Unapproved -Status Any
