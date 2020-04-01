@@ -1,0 +1,1 @@
+This is the readme for my powershell repository. This is just where I put a lot of scripts that I use on the regular. I didn't write all of these and I don't claim credit.
