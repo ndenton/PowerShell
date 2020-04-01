@@ -4,11 +4,11 @@ function Update-WSUS {
         $UserName
     )
     
-    $WSUSStatus = Invoke-Command -ComputerName CLTLNCIT1 -ScriptBlock {(Get-WsusServer).GetSubscription().GetSynchronizationStatus()} -Credential $UserName | Select-Object -ExpandProperty Value;
+    $WSUSStatus = Invoke-Command -ComputerName $ComputerName -ScriptBlock {(Get-WsusServer).GetSubscription().GetSynchronizationStatus()} -Credential $UserName | Select-Object -ExpandProperty Value;
 
     If($WSUSStatus -eq 'Running') {
         While($WSUSStatus -eq 'Running') {
-            $Script:WSUSStatus = Invoke-Command -ComputerName CLTLNCIT1 -ScriptBlock {(Get-WsusServer).GetSubscription().GetSynchronizationStatus()} | Select-Object -ExpandProperty Value;
+            $Script:WSUSStatus = Invoke-Command -ComputerName $ComputerName -ScriptBlock {(Get-WsusServer).GetSubscription().GetSynchronizationStatus()} | Select-Object -ExpandProperty Value;
             Write-Host "Sync is still " + $WSUSStatus;
         }   
         Write-Host "Sync is " + $WSUSStatus;             
@@ -17,7 +17,7 @@ function Update-WSUS {
         Write-Host "WSUS Started Sync"
         $Script:WSUSStatus = 'Running'
         While($WSUSStatus -eq 'Running') {
-            $Script:WSUSStatus = Invoke-Command -ComputerName CLTLNCIT1 -ScriptBlock {(Get-WsusServer).GetSubscription().GetSynchronizationStatus()} | Select-Object -ExpandProperty Value;
+            $Script:WSUSStatus = Invoke-Command -ComputerName $ComputerName -ScriptBlock {(Get-WsusServer).GetSubscription().GetSynchronizationStatus()} | Select-Object -ExpandProperty Value;
             Write-Host "Sync is still " + $WSUSStatus;
         }
         Write-Host "Sync is " + $WSUSStatus;
