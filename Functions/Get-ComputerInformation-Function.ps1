@@ -7,13 +7,13 @@ function Get-ComputerInformation {
 
     #Computer System
 
-    $ComputerSystem = Get-WmiObject -Class Win32_ComputerSystem -ComputerName $ComputerName
+    $ComputerSystem = Get-CimInstance -Class Win32_ComputerSystem -ComputerName $ComputerName
     #Operating System
 
-    $OperatingSystem = Get-WmiObject -class win32_OperatingSystem -ComputerName $ComputerName
+    $OperatingSystem = Get-CimInstance -class win32_OperatingSystem -ComputerName $ComputerName
     #BIOS
 
-    $Bios = Get-WmiObject -class win32_BIOS -ComputerName $ComputerName
+    $Bios = Get-CimInstance -class win32_BIOS -ComputerName $ComputerName
     
     #Prepare Output
     $Properties = @{
