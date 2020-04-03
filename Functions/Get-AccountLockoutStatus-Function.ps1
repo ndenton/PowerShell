@@ -66,7 +66,7 @@ Function Get-AccountLockoutStatus {
             ValueFromPipelineByPropertyName=$true,
             Position=0)]
  
-        [string[]]     $ComputerName = (Get-ADDomainController -Filter * |  select -ExpandProperty Name),
+        [string[]]     $ComputerName = (Get-ADDomainController -Filter * |  Select-Object -ExpandProperty Name),
  
         [Parameter()]
         [string]       $Username,
@@ -91,11 +91,12 @@ Function Get-AccountLockoutStatus {
                                     Username       = $Event.Properties.value[0]
                                     CallerComputer = $Event.Properties.value[1]
                                     }
-                    $Object += New-Object -TypeName PSObject -Property $Properties | Select ComputerName, Username, Time, CallerComputer
+                    $Object += New-Object -TypeName PSObject -Property $Properties | Select-Object ComputerName, Username, Time, CallerComputer
                 }
  
             } catch {
                 $ErrorMessage = $Computer + " Error: " + $_.Exception.Message
+                Write-Host($ErrorMessage);
                     
             } finally {
                 if ($Username) {

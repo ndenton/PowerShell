@@ -35,8 +35,8 @@ function Find-User
         (
             [Parameter(Mandatory=$true, Position=0)]
             [Object]
-            $Username = (read-host "Please enter the Primary  user"),
-            $FILESERVER = "Name of Fileserver"
+            $Username,
+            $FILESERVER
         )
         # Connect Remotely to Server, Run Session, get a list of everybody logged in there
    
@@ -50,7 +50,7 @@ function Find-User
             # Use nslookup to identify the computer, grab the line with the “Name:” field in it
             $Computername=([System.Net.dns]::GetHostbyAddress("$ComputerIP"))
             $computername =  $ComputerName.HostName
-            If ($Computername -eq $NULL) { $Computername=”Unknown”}
+            If ($NULL -eq $Computername) { $Computername=”Unknown”}
             #Else { $Computername=$Computername.substring(9).trim()}
             write-host
             # Show me where the silly fool is hiding
