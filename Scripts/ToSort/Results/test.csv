@@ -1,0 +1,10 @@
+#TYPE Microsoft.Online.Administration.Domain
+"ExtensionData","Authentication","Capabilities","IsDefault","IsInitial","Name","RootDomain","Status","VerificationMethod"
+"System.Runtime.Serialization.ExtensionDataObject","Managed","Email, OrgIdAuthentication","False","False","LionelNASCAR.COM",,"Verified","DnsRecord"
+"System.Runtime.Serialization.ExtensionDataObject","Managed","Email, OfficeCommunicationsOnline, OrgIdAuthentication, Intune","True","False","LIONEL.COM",,"Verified","DnsRecord"
+"System.Runtime.Serialization.ExtensionDataObject","Managed","None","False","False","LNC1.mail.onmicrosoft.com",,"Verified","DnsRecord"
+"System.Runtime.Serialization.ExtensionDataObject","Managed","Email, OrgIdAuthentication","False","False","LIONELTRACKS.COM",,"Verified","DnsRecord"
+"System.Runtime.Serialization.ExtensionDataObject","Managed","Email","False","False","LIONELBATTLETRAIN.COM",,"Verified","DnsRecord"
+"System.Runtime.Serialization.ExtensionDataObject","Managed","Email, OfficeCommunicationsOnline","False","True","LNC1.onmicrosoft.com",,"Verified","DnsRecord"
+"System.Runtime.Serialization.ExtensionDataObject","Managed","None","False","False","lnc.microsoftonline.com",,"Verified","DnsRecord"
+"System.Runtime.Serialization.ExtensionDataObject","Managed","None","False","False","RCCAMEMBERS.COM",,"Verified","DnsRecord"
