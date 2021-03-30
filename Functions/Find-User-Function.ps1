@@ -41,7 +41,7 @@ function Find-User
         # Connect Remotely to Server, Run Session, get a list of everybody logged in there
    
         $S=NEW-PSSESSION –computername $FILESERVER
-        $Results=(INVOKE-COMMAND –Session $s –scriptblock { (NET SESSION) }) | Select-string $USERNAME
+        $Results=(INVOKE-COMMAND –Session $s –scriptblock { (NET SESSION) }) | Select-string $Username
         REMOVE-PSSESSION $S
         # Let’s parse through the data and pull out what we need  
         Foreach ( $Part in $RESULTS ) {
@@ -54,6 +54,6 @@ function Find-User
             #Else { $Computername=$Computername.substring(9).trim()}
             write-host
             # Show me where the silly fool is hiding
-            “$User is logged into $Computername with the IP address $ComputerIP”
+            "" + $User + "est logged into $Computername with the IP address $ComputerIP”
         }
     }
